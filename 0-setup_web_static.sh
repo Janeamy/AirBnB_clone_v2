@@ -2,7 +2,7 @@
 # This bash script sets up web servers for the deployment of web_static.
 sudo apt-get update
 sudo apt-get -y install nginx
-sudo ufw allow 'Nginx HTTP'
+sudo sed -i 's/listen\s*80;/listen 80 default_server;/g' /etc/nginx/sites-available/default
 
 sudo mkdir -p /data/
 sudo mkdir -p /data/web_static/
